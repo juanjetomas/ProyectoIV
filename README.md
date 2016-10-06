@@ -1,8 +1,4 @@
 #Proyecto Infraestructura Virtual (IV) curso 16/17
 
-Proyecto desarrollado por Juan Jesús Tomás Rojas para la asignatura de Infraestructura Virtual impartida en el Grado de Ingeniería Informática en la Universidad de Granada.
-
-Dicho proyecto consiste en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps.
-
 ##Aplicación sobre la que se creará la infraestructura virtual
-En principio se usará la aplicacion desarrollada el año anterior en DAI, que consiste en una aplicación web desarrollada usando Django, en la que se muestran bares y tapas.
+La infraestructura virtual se pretende crear sobre una aplicación web, desarrollada usando Python mediante el framework Django. La aplicación mostraría una lista de bares con sus repectivas tapas y permitiría tanto añadir nuevos, como votar las tapas favoritas, permitiendo hacer rankings. La base de datos principal sería sqlite3. Los usuarios podrían registrarse. El despliegue se realizará en principio en Amazon Web Services, aunque puede cambiar si durante el desarrollo de la asignatura se encuentra uno con más ventajas.
