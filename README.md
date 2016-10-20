@@ -3,6 +3,7 @@ A continuación se muestran los pasos seguidos en la realización de la práctic
 # Creación de par de claves y subida de clave a GitHub
 Las claves se generan con el siguiente comando:
 
+
 ```bash
 ssh-keygen -t rsa -b 4096 -C "juanjetomas@hotmail.com"
 ```
@@ -106,3 +107,9 @@ git push origin hito0
 # Realizando el pull request
 Se añaden los archivos de la manera habitual y se selecciona "New pull request"
 
+# Práctica 1:Aplicación sobre la que se creará la infraestructura virtual
+La infraestructura virtual se pretende crear sobre una aplicación web, desarrollada usando Python mediante el framework Django. La aplicación mostraría una lista de bares con sus repectivas tapas y permitiría tanto añadir nuevos, como votar las tapas favoritas, permitiendo hacer rankings. Los usuarios podrían registrarse.
+
+La base de datos principal sería PostgreSQL. Se usaría un servicio de log como LogStash, Elasticsearch indexaría dichos datos y, opcionalmente, Kibana los mostraría en una interface web.
+
+El despliegue se realizará en principio en Amazon Web Services, aunque puede cambiar si durante el desarrollo de la asignatura se encuentra uno con más ventajas.
