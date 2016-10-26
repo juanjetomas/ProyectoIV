@@ -85,14 +85,15 @@ WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'baresytapas',
         'USER': 'baresytapasuser',
-        'PASSWORD': 'baresyTapasPassword',
-        'HOST': 'localhost',
-        'PORT': '',
+        'PASSWORD': os.environ["PASSDBVARIABLE"], #Acceso a la contraseña a través de una variable de entorno
+        'HOST': 'baresytapas.csibjw1zh6ac.eu-central-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
