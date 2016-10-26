@@ -1,11 +1,9 @@
 
+build_environment: Ubuntu 16.04
 # Únicas ramas que ejecutan test
 branches:
   only:
   - master
-
-services:
-  - postgresql
 
 language: python
 
