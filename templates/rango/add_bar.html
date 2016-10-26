@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block body_block %}
+<html>
+    <head>
+        <title>Rango</title>
+    </head>
+
+    <body>
+        <h1>Añade un bar</h1>
+
+        <form id="bares_form" method="post" action="/rango/add_bar/">
+
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}
+
+            <input type="submit" name="submit" value="Añadir el bar" />
+        </form>
+    </body>
+
+</html>
+
+{% endblock %}

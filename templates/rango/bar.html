@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Bar{% endblock %}
+{% block body_block %}
+<html>
+    <head>
+        <title>Rango</title>
+    </head>
+
+    <body>
+        {% if bar %}
+        <h1>{{ bar_name }}</h1>
+            {% if tapas %}
+            <ul>
+                {% for tapa in tapas %}
+                <!--<li><a href="{{ tapa.url }}">{{ tapa.nombre }}</a></li>  Muestra la url de la tapa-->
+				<li>{{ tapa.nombre }}</li>
+                {% endfor %}
+            </ul>					
+            {% else %}
+                <strong>No hay tapas en este bar.</strong>
+            {% endif %}
+			<br><br>Numero de visitas: {{bar.visitas}}
+			{% if user.is_authenticated %}
+				<br><a href="/rango/bar/{{ bar_name_url }}/add_tapa/">Añadir tapa</a>
+			{% endif %}
+        {% else %}
+            El bar {{ bar_name }} no existe.
+        {% endif %}
+    </body>
+</html>
+
+{% endblock %}
