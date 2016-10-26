@@ -6,6 +6,10 @@ from rango.models import Tapas
 from rango.forms import BaresForm
 from rango.forms import TapasForm
 from .views import *
+from django.test.client import Client
+import unittest
+from django.core.urlresolvers import reverse
+
 
 # Create your tests here.
 
@@ -59,6 +63,15 @@ class BaresTestCase(TestCase):
             print "\nBar " +str(nbar) + " " + bar.nombre
             nbar = nbar+1
         print "\nLista de bares accedida correctamente"
+
+class TestStringMethods(unittest.TestCase):
+	def test_index(self):
+
+		c = Client()
+
+		respose = c.get(reverse('index'))
+		self.assertEqual(respose.status_code,200)
+        print "\nAcceso correcto como cliente"
 
 '''
 class TapasTestCase(TestCase):
