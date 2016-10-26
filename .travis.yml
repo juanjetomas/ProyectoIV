@@ -1,5 +1,5 @@
 
-# safelist
+# Únicas ramas que ejecutan test
 branches:
   only:
   - master
