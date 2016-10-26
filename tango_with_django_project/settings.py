@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for tango_with_django_project project.
 
