@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'baresytapas',
         'USER': 'baresytapasuser',
-        'PASSWORD': os.environ["PASSDBVARIABLE"], #Acceso a la contraseña a través de una variable de entorno
+        'PASSWORD': 'baresyTapasPassword', #Acceso a la contraseña a través de una variable de entorno os.environ["PASSDBVARIABLE"]
         'HOST': 'baresytapas.csibjw1zh6ac.eu-central-1.rds.amazonaws.com',
         'PORT': '5432',
     }
