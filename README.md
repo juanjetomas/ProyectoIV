@@ -6,5 +6,3 @@ Dicho proyecto consiste en crear la infraestructura virtual de una aplicación d
 
 ##Aplicación sobre la que se creará la infraestructura virtual
 En principio se usará la aplicacion desarrollada el año anterior en DAI, que consiste en una aplicación web desarrollada usando Django, en la que se muestran bares y tapas.
-
-Se añade la documentación del [hito 1](https://github.com/juanjetomas/ProyectoIV/tree/hito1).
