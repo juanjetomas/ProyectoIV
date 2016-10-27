@@ -3,3 +3,4 @@ A partir del segundo hito y por la creciente cantidad de ramas de este repositor
 
 * [Hito 0](Hito0.md)
 * [Hito 1](Hito1.md)
+* [Hito 2](Hito2.md)
