@@ -1,0 +1,18 @@
+
+build_environment: Ubuntu 16.04
+# Únicas ramas que ejecutan test
+branches:
+  only:
+  - master
+
+language: python
+
+python:
+  - 2.7
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - python manage.py test
+
