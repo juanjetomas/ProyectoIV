@@ -184,4 +184,4 @@ Se ejecutan los test desde Travis:
 
 Y obtenemos:
 
-![travis](https://travis-ci.org/juanjetomas/ProyectoIV.svg?branch=master)
+[![Build Status](https://travis-ci.org/juanjetomas/ProyectoIV.svg?branch=master)](https://travis-ci.org/juanjetomas/ProyectoIV)
