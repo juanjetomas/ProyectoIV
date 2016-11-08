@@ -1,5 +1,5 @@
 # Proyecto Infraestructura Virtual (IV) curso 16/17
-![travis](https://travis-ci.org/juanjetomas/ProyectoIV.svg?branch=master)
+[![Build Status](https://travis-ci.org/juanjetomas/ProyectoIV.svg?branch=master)](https://travis-ci.org/juanjetomas/ProyectoIV)
 
 Proyecto desarrollado por Juan Jesús Tomás Rojas para la asignatura de Infraestructura Virtual impartida en el Grado de Ingeniería Informática en la Universidad de Granada.
 
