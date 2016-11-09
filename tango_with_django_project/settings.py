@@ -28,6 +28,9 @@ STATICFILES_DIRS = (
     STATIC_PATH,
 )
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Absolute path to the media directory
 
@@ -92,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'baresytapas',
         'USER': 'baresytapasuser',
-        'PASSWORD': os.environ["PASSDBVARIABLE"], #Acceso a la contraseña a través de una variable de entorno 
+        'PASSWORD': os.environ["PASSDBVARIABLE"], #Acceso a la contraseña a través de una variable de entorno
         'HOST': 'baresytapas.csibjw1zh6ac.eu-central-1.rds.amazonaws.com',
         'PORT': '5432',
     }
