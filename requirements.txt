@@ -2,3 +2,4 @@ Django==1.7
 django-registration==2.1.2
 psycopg2==2.6.2
 gunicorn==19.6.0
+dj-database-url==0.4.1
