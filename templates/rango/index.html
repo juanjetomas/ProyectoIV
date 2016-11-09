@@ -6,11 +6,11 @@
 {% block body_block %}
 
 		<script>
-			$(function ajax() { 
+			$(function ajax() {
 				$("#btngr").click(function() {
 					var fontSize = $(window).width()/80;
 					$('body').css('font-size', fontSize);
-	
+
 					$(window).resize(function() {
 						var fontSize = $(window).width()/50;
 						$('body').css('font-size', fontSize);
@@ -20,7 +20,7 @@
 				$("#btnmgr").click(function() {
 					var fontSize = $(window).width()/70;
 					$('body').css('font-size', fontSize);
-	
+
 					$(window).resize(function() {
 						var fontSize = $(window).width()/50;
 						$('body').css('font-size', fontSize);
@@ -31,7 +31,7 @@
 				$("#btnnm").click(function() {
 					var fontSize = $(window).width()/90;
 					$('body').css('font-size', fontSize);
-	
+
 					$(window).resize(function() {
 						var fontSize = $(window).width()/50;
 						$('body').css('font-size', fontSize);
@@ -39,26 +39,26 @@
 					});
 				});
 
-				$.ajax({					
+				$.ajax({
 					url: 'reclama_datos/',
-					type: 'get',      
-					datos: {'foo':'bar'},                 
-					success: function(datos) {						
-						Visualiza_datos(datos); 
+					type: 'get',
+					datos: {'foo':'bar'},
+					success: function(datos) {
+						Visualiza_datos(datos);
 					},
-					failure: function(datos) { 
+					failure: function(datos) {
 						alert('esto no vá');
 					}
 				});
-	
+
 				function Visualiza_datos (datos) {
 					if(Object.keys(datos).length>0){
 						nBares = [];
 						nVisitas = [];
-					
-						  
+
+
 						for(var bar in datos){
-							nBares.push(bar);						
+							nBares.push(bar);
 							nVisitas.push(datos[bar]);
 						}
 						$('#container').highcharts({
@@ -87,11 +87,11 @@
 					}else{
 						container.style.display = 'none';
 					}
-		
+
 				};
 
 			});
-		
+
 		</script>
 
 
@@ -107,7 +107,7 @@
 				<strong>No hay bares disponibles.</strong><br>
 		{% endif %}
 
-		<script src="http://code.highcharts.com/highcharts.js"></script>
+		<script src="//code.highcharts.com/highcharts.js"></script>
 		<div id="container" style="height: 300px"></div>
 
 
@@ -125,8 +125,8 @@
 
 
 
-         
+
         <br><br><a href="/rango/about/">Acerca de</a><br />
        <!-- <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" /> <!-- New line -->
-   
+
 {% endblock %}
