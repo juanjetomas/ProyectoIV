@@ -24,7 +24,7 @@ class BaresTestCase(TestCase):
         }
         form = BaresForm(data=formdata)
         self.assertTrue(form.is_valid())
-        print "\nEl formulario utilizado es válido"
+        print("\nEl formulario utilizado es válido")
 
     def test_save_bar(self):
         formdata = {
@@ -40,8 +40,8 @@ class BaresTestCase(TestCase):
         except Bares.DoesNotExist:
             lista=[]
         self.assertTrue(lista)
-        print  "\n" + lista.nombre
-        print "\nEl bar se ha guardado correctamente"
+        print("\n" + lista.nombre)
+        print("\nEl bar se ha guardado correctamente")
 
     def test_show_bares(self):
         formdata = {
@@ -62,9 +62,9 @@ class BaresTestCase(TestCase):
         bares_list = Bares.objects.order_by('-visitas')[:10]
         nbar = 1
     	for bar in bares_list:
-            print "\nBar " +str(nbar) + " " + bar.nombre
+            print("\nBar " +str(nbar) + " " + bar.nombre)
             nbar = nbar+1
-        print "\nLista de bares accedida correctamente"
+        print("\nLista de bares accedida correctamente")
 
 class TestStringMethods(unittest.TestCase):
 	def test_index(self):
@@ -73,7 +73,7 @@ class TestStringMethods(unittest.TestCase):
 
 		respose = c.get(reverse('index'))
 		self.assertEqual(respose.status_code,200)
-        print "\nAcceso correcto como cliente"
+        print("\nAcceso correcto como cliente")
 
 #Test interfaz REST
 class BarRESTTests(APITestCase):
@@ -82,11 +82,11 @@ class BarRESTTests(APITestCase):
         response= self.client.post("/rango/lista_bares/", data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Bares.objects.get().nombre, "prueba")
-        print "Bar añadido correctamente con la interfaz REST"
+        print("Bar añadido correctamente con la interfaz REST")
 
     def test_listar_API(self):
         b = Bares(nombre="Barprueba", direccion = "Dirprueba", visitas=54)
         b.save()
         respuesta = self.client.get("/rango/lista_bares/")
         self.assertEqual(respuesta.content, b'[{"nombre": "Barprueba", "direccion": "Dirprueba", "visitas": 54}]')
-        print "Listado de bares accedido mediante interfaz REST"
+        print("Listado de bares accedido mediante interfaz REST")
