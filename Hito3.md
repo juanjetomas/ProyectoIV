@@ -118,3 +118,6 @@ Aunque en un principio el botón de _deploy to Heroku_ puede hacer pensar que ab
 Con esto, el botón que se ha añadido en el fichero [README.md](https://github.com/juanjetomas/ProyectoIV) de la rama máster (que es genérico y apunta a https://heroku.com/deploy) adquiere la funcionalidad deseada, pudiendo desplegar la aplicación en nuestra propia cuenta de Heroku así de fácil:
 
 ![img26](capturas/captura26.png)
+
+## Interfaz REST
+Como objetivo secundario de este hito, se ha intregrado una interfaz REST en la aplicación en una función que admite tanto GET como POST, por lo que se podría considerar que realiza la función de 2. Dicho código se encuentra en el archivo [views.py](https://github.com/juanjetomas/ProyectoIV/blob/master/rango/views.py). Además, se han realizado algunos test para comprobar el funcionamiento de dicha interfaz, que están definidos en [tests.py](https://github.com/juanjetomas/ProyectoIV/blob/master/rango/tests.py).
