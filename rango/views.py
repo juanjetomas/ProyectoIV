@@ -6,8 +6,7 @@ from rango.forms import BaresForm
 from rango.forms import TapasForm
 from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
-from django.core import serializers
-
+from rango.serializers import *
 
 def index(request):
 
