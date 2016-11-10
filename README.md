@@ -21,6 +21,10 @@ $ cd ProyectoIV
 $ pip install -r requirements.txt
 $ python manage.py runserver
 ```
+![infodb](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/capturas/dbcompleto.png)
+```bash
+$ python manage.py runserver
+```
 
 Tras esto, la app debería estar funcionando en http://127.0.0.1:8000/
 
@@ -52,4 +56,4 @@ Los test se han definido en el archivo [tests.py](rango/tests.py) utilizando el 
 python manage.py test
 ```
 ### Integración continua
-Se ha definido el archivo (.travis.yml)[.travis.yml] que especifica los requisitos para el testeo en Travis CI. Los detalles se pueden ver en el [Hito 2](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito2.md).
+Se ha definido el archivo [.travis.yml](.travis.yml) que especifica los requisitos para el testeo en Travis CI. Los detalles se pueden ver en el [Hito 2](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito2.md).
