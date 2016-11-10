@@ -101,3 +101,20 @@ Tras esto, para comprobar que todo está correcto, modificamos el apartado "Acer
 ![img25](capturas/captura25.png)
 
 Tras pasar los test en Travis, la aplicación se despliega automáticamente y los cambios se ven reflejados.
+
+## Botón 'deploy to Heroku'
+Aunque en un principio el botón de _deploy to Heroku_ puede hacer pensar que abre la aplicación ya desplegada en Heroku, su función original es permitir que una persona pueda desplegar la aplicacion en su propia cuenta de Heroku con tan solo hacer click en el botón. Para ello se ha creado el archivo [app.json](https://github.com/juanjetomas/ProyectoIV/blob/master/app.json) con la siguiente información:
+```json
+{
+  "name": "Bares y tapas",
+  "description": "App realizada con Django y PostgreSQL para la asignatura IV",
+  "logo": "https://avatars3.githubusercontent.com/u/9733173?v=3&u=3073beb3aa9b174b98e4e4c6e6e9f7a893e7cdd2&s=140",
+  "image": "heroku/python",
+  "repository": "https://github.com/juanjetomas/ProyectoIV",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ]
+}
+```
+Con esto, el botón que se ha añadido en el fichero [README.md](https://github.com/juanjetomas/ProyectoIV) de la rama máster (que es genérico y apunta a https://heroku.com/deploy) adquiere la funcionalidad deseada, pudiendo desplegar la aplicación en nuestra propia cuenta de Heroku así de fácil:
+
+![img26](capturas/captura26.png)
