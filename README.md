@@ -1,5 +1,6 @@
 # Proyecto Infraestructura Virtual (IV) curso 16/17
 [![Build Status](https://travis-ci.org/juanjetomas/ProyectoIV.svg?branch=master)](https://travis-ci.org/juanjetomas/ProyectoIV)
+
 [![Heroku](https://iwantmyname.com/images/logo-developer-heroku.png)](https://baresytapasjj.herokuapp.com/rango/)
 
 Proyecto desarrollado por Juan Jesús Tomás Rojas para la asignatura de Infraestructura Virtual impartida en el Grado de Ingeniería Informática en la Universidad de Granada.
