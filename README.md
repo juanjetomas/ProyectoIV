@@ -68,3 +68,6 @@ python manage.py test
 ```
 ### Integración continua
 Se ha definido el archivo [.travis.yml](.travis.yml) que especifica los requisitos para el testeo en Travis CI. Los detalles se pueden ver en el [Hito 2](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito2.md).
+
+## Interfaz REST
+Como objetivo secundario del tercer hito, se ha añadido una interfaz REST cuya información se puede consultar en el [Hito 3](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito3.md)
