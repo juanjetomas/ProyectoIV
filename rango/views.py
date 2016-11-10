@@ -5,6 +5,9 @@ from rango.models import Tapas
 from rango.forms import BaresForm
 from rango.forms import TapasForm
 from django.http import JsonResponse
+from rest_framework.parsers import JSONParser
+from .serializers import *
+
 
 def index(request):
 
@@ -30,7 +33,7 @@ def bar(request, bar_name_slug):
 		# So the .get() method returns one model instance or raises an exception.
 		bar = Bares.objects.get(slug=bar_name_slug)
 		context_dict['bar_name'] = bar.nombre
-		context_dict['bar_name_url'] = bar_name_slug 
+		context_dict['bar_name_url'] = bar_name_slug
 
 		# Retrieve all of the associated pages.
 		# Note that filter returns >= 1 model instance.
@@ -97,7 +100,7 @@ def add_tapa(request, bar_name_slug):
     else:
         form = TapasForm()
 
-    context_dict = {'form':form, 'bar_name_url':bar_name_slug, 'bar': bar}	
+    context_dict = {'form':form, 'bar_name_url':bar_name_slug, 'bar': bar}
 
     return render(request, 'rango/add_tapa.html', context_dict)
 
@@ -111,5 +114,22 @@ def reclama_datos(request):
 
 def about(request):
 	return render(request, 'rango/about.html')
+
+# Interfaz REST
+def lista_bares(request):
+	if request.method == 'GET':
+		bares = Bares.objects.all()
+		serializado = BarSerializer(bares, many=True)
+		return JsonResponse(serializado.data, safe=False)
+
+	elif request.method == 'POST':
+		data = JSONParser().parse(request)
+		serializado = BarSerializer(data=data)
+		if serializado.is_valid():
+			serializado.save()
+			return JsonResponse(serializado.data, status=201)
+		return JsonResponse(serializado.errors, status = 400)
+
+
 
 # Create your views here.
