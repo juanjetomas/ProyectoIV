@@ -1,0 +1,9 @@
+{
+  "name": "Aplicacion web de bares y tapas",
+  "description": "App realizada con Django y PostgreSQL para la asignatura IV",
+  "logo": "https://avatars3.githubusercontent.com/u/9733173?v=3&u=3073beb3aa9b174b98e4e4c6e6e9f7a893e7cdd2&s=140",
+  "image": "heroku/python",
+  "repository": "https://github.com/juanjetomas/ProyectoIV",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ]
+}

@@ -3,6 +3,9 @@
 
 [![Heroku](https://iwantmyname.com/images/logo-developer-heroku.png)](https://baresytapasjj.herokuapp.com/rango/)
 
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 Proyecto desarrollado por Juan Jesús Tomás Rojas para la asignatura de Infraestructura Virtual impartida en el Grado de Ingeniería Informática en la Universidad de Granada.
 
 Dicho proyecto consiste en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps.
@@ -47,6 +50,8 @@ $ git push heroku master
 $ heroku run python manage.py migrate
 $ heroku open
 ```
+También se puede realizar con este botón:
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 Se ha elegido este PaaS por la gran cantidad de documentación existente. Se integra perfectamente con Travis CI y permite conexión con GitHub para el despliegue atomático. Además, posee bastantes plugins de entre los que destaca el de PostgreSQL, por el cuál no es necesario introducir la tarjeta de cŕedito.
 Por estos motivos Heroku se adapta al proyecto que se está desarrollando.
