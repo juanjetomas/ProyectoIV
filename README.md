@@ -48,6 +48,9 @@ $ heroku run python manage.py migrate
 $ heroku open
 ```
 
+Se ha elegido este PaaS por la gran cantidad de documentación existente. Se integra perfectamente con Travis CI y permite conexión con GitHub para el despliegue atomático. Además, posee bastantes plugins de entre los que destaca el de PostgreSQL, por el cuál no es necesario introducir la tarjeta de cŕedito.
+Por estos motivos Heroku se adapta al proyecto que se está desarrollando.
+
 
 ## Test e integración continua
 ### Test
