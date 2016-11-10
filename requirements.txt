@@ -3,3 +3,4 @@ django-registration==2.1.2
 psycopg2==2.6.2
 gunicorn==19.6.0
 dj-database-url==0.4.1
+djangorestframework==3.5.3
