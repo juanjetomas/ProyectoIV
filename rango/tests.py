@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.test import TestCase
 
 from rango.models import Bares
@@ -61,18 +60,16 @@ class BaresTestCase(TestCase):
         form.save(commit=True);
         bares_list = Bares.objects.order_by('-visitas')[:10]
         nbar = 1
-    	for bar in bares_list:
+        for bar in bares_list:
             print("\nBar " +str(nbar) + " " + bar.nombre)
             nbar = nbar+1
         print("\nLista de bares accedida correctamente")
 
 class TestStringMethods(unittest.TestCase):
-	def test_index(self):
-
-		c = Client()
-
-		respose = c.get(reverse('index'))
-		self.assertEqual(respose.status_code,200)
+    def test_index(self):
+        c = Client()
+        respose = c.get(reverse('index'))
+        self.assertEqual(respose.status_code,200)
         print("\nAcceso correcto como cliente")
 
 #Test interfaz REST

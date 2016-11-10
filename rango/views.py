@@ -68,7 +68,7 @@ def add_bar(request):
             return index(request)
         else:
             # The supplied form contained errors - just print them to the terminal.
-            print form.errors
+            print(form.errors)
     else:
         # If the request was not a POST, display the form to enter details.
         form = BaresForm()
@@ -95,7 +95,7 @@ def add_tapa(request, bar_name_slug):
                 # probably better to use a redirect here.
                 return bar(request, bar_name_slug)
         else:
-            print form.errors
+            print(form.errors)
     else:
         form = TapasForm()
 
