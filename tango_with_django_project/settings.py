@@ -102,7 +102,7 @@ DATABASES = {
     }
 }
 
-HEROKU_DEPLOY = os.getenv('DYNO_RAM')
+HEROKU_DEPLOY = os.getenv('DYNO_RAM') #Lee una variable de entorno definida en Heroku
 if HEROKU_DEPLOY:
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
