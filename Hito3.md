@@ -38,7 +38,7 @@ Creamos el archivo _Procfile_ para indicar de qué manera se ejecuta la aplicaci
 web: gunicorn tango_with_django_project.wsgi --log-file -
 ```
 
-Este archivo indica a Heroku qué comandos se deben ejecutar por el dyno de nuestra aplicación. En este caso el servidor gunicorn con nuestra aplicación.
+Este archivo indica a Heroku qué comandos se deben ejecutar por el dyno de nuestra aplicación. En este caso el servidor gunicorn con nuestra aplicación, que busca el fichero _wsgi.py_ en el directorio indicado.
 
 Tras loguearnos en Heroku toolbelt, creamos la aplicación:
 
