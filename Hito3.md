@@ -23,9 +23,12 @@ En primer lugar he creado el archivo _runtime.txt_ con el siguiente contenido:
 ```
 python-2.7.12
 ```
+Aunque finalmente lo he cambiado a una versión más nueva por la inclusión de la interfaz REST:
 ```
-python-2.7.12
+python-3.5.2
 ```
+Esto le indica a Heroku en qué versión de Python debe ejecutar la aplicación.
+
 Y añadimos al _requirements.txt_:
 ```
 gunicorn==19.6.0
@@ -34,6 +37,9 @@ Creamos el archivo _Procfile_ para indicar de qué manera se ejecuta la aplicaci
 ```
 web: gunicorn tango_with_django_project.wsgi --log-file -
 ```
+
+Este archivo indica a Heroku qué comandos se deben ejecutar por el dyno de nuestra aplicación. En este caso el servidor gunicorn con nuestra aplicación.
+
 Tras loguearnos en Heroku toolbelt, creamos la aplicación:
 
 ![img20](capturas/captura20.png)
@@ -115,6 +121,8 @@ Aunque en un principio el botón de _deploy to Heroku_ puede hacer pensar que ab
   "addons": [ "heroku-postgresql" ]
 }
 ```
+Este fichero indica a la web de Heroku el logotipo que se va a usar como prseentación, el repositorio desde el que se desplegará la aplicación, el lenguaje y los addons (en este caso, la base de datos PostgreSQL).
+
 Con esto, el botón que se ha añadido en el fichero [README.md](https://github.com/juanjetomas/ProyectoIV) de la rama máster (que es genérico y apunta a https://heroku.com/deploy) adquiere la funcionalidad deseada, pudiendo desplegar la aplicación en nuestra propia cuenta de Heroku así de fácil:
 
 ![img26](capturas/captura26.png)
