@@ -91,7 +91,7 @@ https://baresytapasjj.herokuapp.com/
 
 ![img22](capturas/captura22.png)
 
-## Despliegue automático
+## Despliegue automático desde Github
 En la pestaña deploy de nuestra aplicación en Heroku:
 * Realizamos la conexión con Github
 * Seleccionamos nuestro repositorio
