@@ -53,6 +53,8 @@ $ heroku open
 También se puede realizar con este botón:
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+Para más información sobre el funcionamiento de este botón y su configuración, consulte la [documentación](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito3.md#botón-deploy-to-heroku).
+
 Se ha elegido este PaaS por la gran cantidad de documentación existente. Se integra perfectamente con Travis CI y permite conexión con GitHub para el despliegue atomático. Además, posee bastantes plugins de entre los que destaca el de PostgreSQL, por el cuál no es necesario introducir la tarjeta de cŕedito.
 Por estos motivos Heroku se adapta al proyecto que se está desarrollando.
 
