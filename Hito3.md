@@ -98,6 +98,9 @@ En la pestaña deploy de nuestra aplicación en Heroku:
 * Activamos la opción "Wait for CI to pass before deploy" para que no se despliegue hasta que no se hayan pasado los test
 * Y activamos "enable automatic deploy" para que de despligue la aplicación automáticamente con cada push
 
+![img27](capturas/captura27.png)
+
+
 Tras esto, para comprobar que todo está correcto, modificamos el apartado "Acerca de" y realizamos un push a mi repositorio.
 
 ![img23](capturas/captura23.png)
