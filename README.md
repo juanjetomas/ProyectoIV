@@ -64,7 +64,7 @@ Para más información sobre este tema, consultar el [Hito 3](https://github.com
 Una muestra de los ficheros de configuración requeridos por Heroku y su descripción se encuentran también en la [documentación](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito3.md)
 
 ### Despliegue desde github
-Contando con (por ejemplo) un fork del repositorio, se puede realizar el despliegue automático desde Github. Se puede consultar el proceso en el [siguiente enlace](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito3.md#despliegue-automático).
+Contando con (por ejemplo) un fork del repositorio, se puede realizar el despliegue automático desde Github. Se puede consultar el proceso en el [siguiente enlace](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito3.md#despliegue-automático-desde-github).
 
 
 ## Test e integración continua
