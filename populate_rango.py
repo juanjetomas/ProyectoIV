@@ -43,7 +43,7 @@ def populate():
     # Print out what we have added to the user.
 	for c in Bares.objects.all():
 		for p in Tapas.objects.filter(bar=c):
-			print "- {0} - {1}".format(str(c), str(p))
+			print("- {0} - {1}".format(str(c), str(p)))
 
 def add_bar(name, dire, visit=0):
 	c = Bares.objects.get_or_create(nombre=name)[0]
@@ -62,5 +62,5 @@ def add_tapa(barp, nom, url, vot=0):
 
 # Start execution here!
 if __name__ == '__main__':
-    print "Starting Rango population script..."
+    print("Starting Rango population script...")
     populate()
