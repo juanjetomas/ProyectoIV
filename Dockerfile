@@ -7,11 +7,8 @@ MAINTAINER Juan Jesús Tomás R.
 #Instala sudo
 #RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
 
-#Actualiza repositorios e instala:
-RUN apt-get update && apt-get install -y \                      #Python con lo necesario
-  python3-setuptools python3-dev build-essential libpq-dev \    #Git
-  git \
-  net-tools                                                     #Necesario para realizar ifconfig
+#Actualiza repositorios e instala: python y herramientas, git y el paquete que contiene a ifconfig
+RUN apt-get update && apt-get install -y python3-setuptools python3-dev build-essential libpq-dev git net-tools
 
 #Instala pip
 RUN easy_install3 pip
@@ -21,3 +18,6 @@ RUN git clone https://github.com/juanjetomas/ProyectoIV
 
 #Instala las dependencias
 RUN cd ProyectoIV && pip install -r requirements.txt
+
+#Copia el script de ejecución a la raiz
+ADD ProyectoIV/ejecucion_desde_docker.sh /
