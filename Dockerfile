@@ -20,4 +20,7 @@ RUN git clone https://github.com/juanjetomas/ProyectoIV
 RUN cd ProyectoIV && pip install -r requirements.txt
 
 #Copia el script de ejecución a la raiz
-ADD ProyectoIV/ejecucion_desde_docker.sh /
+ADD ejecucion_desde_docker.sh /
+
+#Variable de entorno que indica el entorno de DOCKER
+ENV USINGDOCKER=true
