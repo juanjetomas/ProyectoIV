@@ -90,22 +90,36 @@ WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'baresytapas',
-        'USER': 'baresytapasuser',
-        'PASSWORD': os.environ["PASSDBVARIABLE"], #Acceso a la contraseña a través de una variable de entorno
-        'HOST': 'baresytapas.csibjw1zh6ac.eu-central-1.rds.amazonaws.com',
-        'PORT': '5432',
-    }
-}
-
+DOCKER = os.getenv('USINGDOCKER') #Lee una variable de entorno que defino en el dockerfile
 HEROKU_DEPLOY = os.getenv('DYNO_RAM') #Lee una variable de entorno definida en Heroku
+
 if HEROKU_DEPLOY:
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
+elif DOCKER:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'baresytapas',
+            'USER': 'baresytapasuser',
+            'PASSWORD': 'baresyTapasPassword',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'baresytapas',
+            'USER': 'baresytapasuser',
+            'PASSWORD': os.environ["PASSDBVARIABLE"], #Acceso a la contraseña a través de una variable de entorno
+            'HOST': 'baresytapas.csibjw1zh6ac.eu-central-1.rds.amazonaws.com',
+            'PORT': '5432',
+        }
+    }
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
