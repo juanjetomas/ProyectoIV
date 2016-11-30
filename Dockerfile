@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y python3-setuptools python3-dev build-es
 RUN easy_install3 pip
 
 #Descarga el proyecto
-RUN a=d git clone https://github.com/juanjetomas/ProyectoIV
+RUN a=g git clone https://github.com/juanjetomas/ProyectoIV
 
 #Instala las dependencias
 RUN cd ProyectoIV && pip install -r requirements.txt
