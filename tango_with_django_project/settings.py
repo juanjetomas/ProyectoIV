@@ -97,17 +97,6 @@ HEROKU_DEPLOY = os.getenv('DYNO_RAM') #Lee una variable de entorno definida en H
 if HEROKU_DEPLOY:
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
-elif DOCKER:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'baresytapas',
-            'USER': 'baresytapasuser',
-            'PASSWORD': 'baresyTapasPassword',
-            'HOST': 'localhost',
-            'PORT': '',
-        }
-    }
 elif DOCKERMULTIPLE:
     DATABASES = {
         'default': {
@@ -116,6 +105,17 @@ elif DOCKERMULTIPLE:
             'USER': 'baresytapasuser',
             'PASSWORD': 'baresyTapasPassword',
             'HOST': os.environ["DB_PORT_5432_TCP_ADDR"], #Acceso a la dirección del otro contenedor enlazado donde se ejecuta la BD
+            'PORT': '',
+        }
+    }
+elif DOCKER:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'baresytapas',
+            'USER': 'baresytapasuser',
+            'PASSWORD': 'baresyTapasPassword',
+            'HOST': 'localhost',
             'PORT': '',
         }
     }
