@@ -91,6 +91,7 @@ WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DOCKER = os.getenv('USINGDOCKER') #Lee una variable de entorno que defino en el dockerfile
+DOCKERMULTIPLE = os.getenv('DOCKERMULTIPLE') #Lee una variable de entorno que defino en el dockerfile multiple
 HEROKU_DEPLOY = os.getenv('DYNO_RAM') #Lee una variable de entorno definida en Heroku
 
 if HEROKU_DEPLOY:
@@ -104,6 +105,17 @@ elif DOCKER:
             'USER': 'baresytapasuser',
             'PASSWORD': 'baresyTapasPassword',
             'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
+elif DOCKERMULTIPLE:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'baresytapas',
+            'USER': 'baresytapasuser',
+            'PASSWORD': 'baresyTapasPassword',
+            'HOST': os.environ["DB_PORT_5432_TCP_ADDR"], #Acceso a la dirección del otro contenedor enlazado donde se ejecuta la BD
             'PORT': '',
         }
     }
