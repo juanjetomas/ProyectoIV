@@ -6,6 +6,9 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+[![Dockerhub](https://raw.githubusercontent.com/beatcracker/PSDockerHub/master/Media/PSDockerHub.png)](https://hub.docker.com/r/juanjetomas/proyectoiv/)
+
+
 Proyecto desarrollado por Juan Jesús Tomás Rojas para la asignatura de Infraestructura Virtual impartida en el Grado de Ingeniería Informática en la Universidad de Granada.
 
 Dicho proyecto consiste en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps.
@@ -81,3 +84,52 @@ Se ha definido el archivo [.travis.yml](.travis.yml) que especifica los requisit
 Como objetivo secundario del tercer hito, se ha añadido una interfaz REST cuya información se puede consultar en el [Hito 3](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito3.md)
 
 ## Contenedores para pruebas: Docker
+Para probar el proyecto en Docker, nos situamos en la carpeta del repositorio. En primer lugar, lanzamos la base de datos:
+```bash
+sudo docker build -t db_bares -f Dockerfile_db .
+sudo docker run --name db -i -t db_bares /bin/bash
+```
+Una vez en el terminal de la base de datos, ejecutamos:
+```bash
+service postgresql restart
+```
+
+A continuación, en otro terminal, ejecutamos el contenedor de la web:
+```bash
+sudo docker build -t bares .
+sudo docker run -i -t --name web --link db:db bares /bin/bash
+```
+Una vez logeados en el terminal del contenedor, ejecutamos:
+```bash
+sh ejecucion_desde_docker.sh
+```
+
+Se ha creado un [repositorio en Dockerhub](https://hub.docker.com/r/juanjetomas/proyectoiv/) con el fin de compartir de manera pública la imagen del proyecto. Así, la descarga del contenedor se puede realizar así de fácil:
+```bash
+sudo docker pull juanjetomas/proyectoiv
+```
+Sin olvidar la ejecución del contenedor de la base de datos.
+
+Los detalles sobre este script y sobre la creación de imágenes de Docker se pueden encontrar en la [documentación del Hito 4](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito4.md).
+
+### Ejecución en un solo contenedor
+Si se desea ejecutar tanto la aplicación como la base de datos en un solo contenedor, se puede realizar de una manera similar al caso anterior:
+```bash
+sudo docker build -t bares -f Dockerfile_1_solo_contenedor .
+sudo docker run -i -t /bin/bash
+```
+Una vez logeados en el terminal del contenedor, ejecutamos:
+```bash
+sh ejecucion_desde_docker.sh
+```
+### Uso de base de datos remota
+Si en la ejecución con Docker (en cualquiera de las 2 opciones) se desea usar una base de datos remota, una vez en el terminal del contenedor se debe ejecutar:
+```bash
+unset USINGDOCKER
+unset DOCKERMULTIPLE
+```
+
+Y proceder a la definición de la variable de entorno necesaria tal y como se detalla en el apartado ["Ejecución en local"](https://github.com/juanjetomas/ProyectoIV#en-local) de este mismo fichero de documentación.
+
+
+Para más información sobre este apartado, consultar la [documentación del Hito 4](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito4.md).
