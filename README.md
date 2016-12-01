@@ -84,6 +84,8 @@ Se ha definido el archivo [.travis.yml](.travis.yml) que especifica los requisit
 Como objetivo secundario del tercer hito, se ha añadido una interfaz REST cuya información se puede consultar en el [Hito 3](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito3.md)
 
 ## Contenedores para pruebas: Docker
+Este es el Dockerfile de la base de datos: [Dockerfile_db](https://github.com/juanjetomas/ProyectoIV/blob/master/Dockerfile_db)
+
 Para probar el proyecto en Docker, nos situamos en la carpeta del repositorio. En primer lugar, lanzamos la base de datos:
 ```bash
 sudo docker build -t db_bares -f Dockerfile_db .
@@ -94,6 +96,8 @@ Una vez en el terminal de la base de datos, ejecutamos:
 service postgresql restart
 ```
 
+Este es el Dockerfile de la aplicación: [Dockerfile](https://github.com/juanjetomas/ProyectoIV/blob/master/Dockerfile)
+
 A continuación, en otro terminal, ejecutamos el contenedor de la web:
 ```bash
 sudo docker build -t bares .
@@ -103,6 +107,7 @@ Una vez logeados en el terminal del contenedor, ejecutamos:
 ```bash
 sh ejecucion_desde_docker.sh
 ```
+Puede examinar el script [ejecucion_desde_docker.sh](https://github.com/juanjetomas/ProyectoIV/blob/master/ejecucion_desde_docker.sh)
 
 Se ha creado un [repositorio en Dockerhub](https://hub.docker.com/r/juanjetomas/proyectoiv/) con el fin de compartir de manera pública la imagen del proyecto. Así, la descarga del contenedor se puede realizar así de fácil:
 ```bash
@@ -113,6 +118,8 @@ Sin olvidar la ejecución del contenedor de la base de datos.
 Los detalles sobre este script y sobre la creación de imágenes de Docker se pueden encontrar en la [documentación del Hito 4](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito4.md).
 
 ### Ejecución en un solo contenedor
+Este es el Dockerfile de aplicación en un solo contenedor: [Dockerfile_1_solo_contenedor](https://github.com/juanjetomas/ProyectoIV/blob/master/Dockerfile_1_solo_contenedor)
+
 Si se desea ejecutar tanto la aplicación como la base de datos en un solo contenedor, se puede realizar de una manera similar al caso anterior:
 ```bash
 sudo docker build -t bares -f Dockerfile_1_solo_contenedor .
