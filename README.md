@@ -79,3 +79,5 @@ Se ha definido el archivo [.travis.yml](.travis.yml) que especifica los requisit
 
 ## Interfaz REST
 Como objetivo secundario del tercer hito, se ha añadido una interfaz REST cuya información se puede consultar en el [Hito 3](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito3.md)
+
+## Contenedores para pruebas: Docker
