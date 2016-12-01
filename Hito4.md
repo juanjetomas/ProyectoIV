@@ -80,6 +80,7 @@ El procedimiento ha sido:
 - Crear el repositorio
 
 ![captura30](capturas/captura30.png)
+
 ![captura28](capturas/captura28.png)
 
 Cuando se realiza un push al repositorio de Github o a Dockerhub, automáticamente se realiza la build.
