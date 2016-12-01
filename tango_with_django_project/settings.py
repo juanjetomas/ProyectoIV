@@ -94,10 +94,10 @@ DOCKER = os.getenv('USINGDOCKER') #Lee una variable de entorno que defino en el 
 DOCKERMULTIPLE = os.getenv('DOCKERMULTIPLE') #Lee una variable de entorno que defino en el dockerfile multiple
 HEROKU_DEPLOY = os.getenv('DYNO_RAM') #Lee una variable de entorno definida en Heroku
 
-if HEROKU_DEPLOY:
+if HEROKU_DEPLOY: #Si se ejecuta en Heroku
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
-elif DOCKERMULTIPLE:
+elif DOCKERMULTIPLE: #Si se ejecuta en Docker con varios contenedores
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -108,7 +108,7 @@ elif DOCKERMULTIPLE:
             'PORT': '',
         }
     }
-elif DOCKER:
+elif DOCKER: #Si se ejecuta en docker con un solo contenedor
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -119,7 +119,7 @@ elif DOCKER:
             'PORT': '',
         }
     }
-else:
+else: #Opción por defecto con BD remota
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
