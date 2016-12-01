@@ -10,6 +10,9 @@ then
   service postgresql start
   service postgresql restart
 fi
+#Migra la base de datos
 python3.5 manage.py migrate
+#Popula la base de datos con ejemplos
 python3.5 populate_rango.py
+#Lanza la aplicación en la dirección y puertos deseados
 python3.5 manage.py runserver $IP:8000
