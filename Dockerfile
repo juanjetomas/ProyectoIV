@@ -4,9 +4,6 @@ FROM ubuntu:latest
 #Autor
 MAINTAINER Juan Jesús Tomás R.
 
-#Instala sudo
-#RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
-
 #Actualiza repositorios e instala: python y herramientas, git,
 #el paquete que contiene a ifconfig y postgresql
 RUN apt-get update && apt-get install -y python3-setuptools python3-dev build-essential libpq-dev git net-tools
@@ -15,7 +12,7 @@ RUN apt-get update && apt-get install -y python3-setuptools python3-dev build-es
 RUN easy_install3 pip
 
 #Descarga el proyecto
-RUN a=g git clone https://github.com/juanjetomas/ProyectoIV
+RUN git clone https://github.com/juanjetomas/ProyectoIV
 
 #Instala las dependencias
 RUN cd ProyectoIV && pip install -r requirements.txt
