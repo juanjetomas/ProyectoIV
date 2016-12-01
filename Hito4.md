@@ -71,6 +71,25 @@ Simplemente instala ubuntu, las herramientas de postgresql y crea la base de dat
 El archivo [Dockerfile_1_solo_contenedor](https://github.com/juanjetomas/ProyectoIV/blob/master/Dockerfile_1_solo_contenedor) combina los 2 anteriores y aunque no es la metodología más recomendada, permite de una manera muy cómoda probar la aplicación con un solo contenedor. La única diferencia son las variables de entorno que avisan a la aplicación del tipo de contenedor que estamos creando.
 
 ## Dockerhub
+Se ha creado un repositorio en Dockerhub enlazado al de Github [aquí](https://hub.docker.com/r/juanjetomas/proyectoiv/).
+El procedimiento ha sido:
+- Registrarse en Dockerhub
+- Enlazar con Github
+
+![captura29](capturas/captura29.png)
+- Crear el repositorio
+
+![captura30](capturas/captura30.png)
+![captura28](capturas/captura28.png)
+
+Cuando se realiza un push al repositorio de Github o a Dockerhub, automáticamente se realiza la build.
+
+Para hacer el push manualmente a Dockerhub lo he realizado así:
+```bash
+$ sudo docker build -t juanjetomas/proyecto-iv:latest --no-cache=true ./
+$ sudo docker login
+$ sudo docker push juanjetomas/proyecto-iv:latest
+```
 
 ## Script de ejecución
 Se ha definido un sencillo script llamado [ejecucion_desde_docker.sh](https://github.com/juanjetomas/ProyectoIV/blob/master/ejecucion_desde_docker.sh) que facilita la ejecución desde Docker:
