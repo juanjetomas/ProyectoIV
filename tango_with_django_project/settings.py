@@ -96,7 +96,8 @@ HEROKU_DEPLOY = os.getenv('DYNO_RAM') #Lee una variable de entorno definida en H
 
 if HEROKU_DEPLOY: #Si se ejecuta en Heroku
     db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
+    #DATABASES['default'].update(db_from_env)
+    DATABASES = {'default': db_from_env}
 elif DOCKERMULTIPLE: #Si se ejecuta en Docker con varios contenedores
     DATABASES = {
         'default': {
