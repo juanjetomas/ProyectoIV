@@ -206,6 +206,11 @@ Se ejecuta con el comando:
 vagrant up --provider=azure
 ```
 
+Si se desea destruir la máquina virtual, se realiza de esta forma:
+```bash
+vagrant destroy
+```
+
 ### Provisionamiento de la máquina virtual
 Este paso consiste en la instalación del software que requiera la aplicación independientemente de su modo de ejecución (definido en la siguiente sección). Dichas especificaciones están definidas en el fichero de Ansible [configuracion.yml](configuracion.yml) que se muestra a continuación:
 ```
