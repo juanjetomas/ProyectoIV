@@ -1,0 +1,18 @@
+---
+- hosts: all
+  sudo: yes
+  remote_user: vagrant
+  tasks:
+  - name: Actualizar el sistema
+    command: sudo apt-get update
+  - name: Dependencias basicas
+    action: apt pkg={{ item }} state=present
+    with_items:
+      - python3-setuptools
+      - python3-dev
+      - libpq-dev
+      - build-essential
+      - git
+      - gunicorn
+  - name: Instalar pip
+    command: sudo easy_install3 pip
