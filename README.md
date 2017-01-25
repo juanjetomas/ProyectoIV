@@ -142,7 +142,7 @@ Y proceder a la definición de la variable de entorno necesaria tal y como se de
 
 Para más información sobre este apartado, consultar la [documentación del Hito 4](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito4.md).
 
-## Deslpiegue automático
+## Despliegue automático
 El objetivo de este apartado es realizar el despliegue automático en una máquina virtual del tipo IaaS remota. Podemos dividir este proceso en creación de la máquina virtual y orquestación, provisionamiento y despliegue.
 
 ### Creación de la máquina virtual
