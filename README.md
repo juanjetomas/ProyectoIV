@@ -8,6 +8,7 @@
 
 [![Dockerhub](https://raw.githubusercontent.com/beatcracker/PSDockerHub/master/Media/PSDockerHub.png)](https://hub.docker.com/r/juanjetomas/proyectoiv/)
 
+[![Azure](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/capturas/azure.png)](https://hub.docker.com/r/juanjetomas/proyectoiv/)
 
 Proyecto desarrollado por Juan Jesús Tomás Rojas para la asignatura de Infraestructura Virtual impartida en el Grado de Ingeniería Informática en la Universidad de Granada.
 
