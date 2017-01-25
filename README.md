@@ -141,3 +141,62 @@ Y proceder a la definición de la variable de entorno necesaria tal y como se de
 
 
 Para más información sobre este apartado, consultar la [documentación del Hito 4](https://github.com/juanjetomas/ProyectoIV/blob/documentacion/Hito4.md).
+
+## Deslpiegue automático
+El objetivo de este apartado es realizar el despliegue automático en una máquina virtual del tipo IaaS remota. Podemos dividir este proceso en creación de la máquina virtual y orquestación, provisionamiento y despliegue.
+
+### Creación de la máquina virtual
+Para la creación y orquestación de la máquina virtual se ha usado Vagrant, y el IaaS elegido ha sido Azure. Para este cometido se usa el archivo [Vagrantfile](Vagrantfile) que se muestra a continuación:
+
+```ruby
+Vagrant.configure('2') do |config|
+  config.vm.box = 'azure'
+  config.vm.box_url = 'https://github.com/msopentech/vagrant-azure/raw/master/dummy.box' #Caja base vacía
+  config.vm.network "private_network",ip: "192.168.50.4", virtualbox__intnet: "vboxnet0" #Ip privada
+  config.vm.hostname = "localhost"
+  config.vm.network "forwarded_port", guest: 80, host: 80
+
+  # use local ssh key to connect to remote vagrant box
+  config.ssh.private_key_path = '~/.ssh/id_rsa'
+
+  config.vm.provider :azure do |azure, override|
+
+    # use Azure Active Directory Application / Service Principal to connect to Azure
+    # see: https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
+
+    # each of the below values will default to use the env vars named as below if not specified explicitly
+
+    azure.vm_image_urn = 'canonical:UbuntuServer:16.04-LTS:16.04.201701130' #Imagen base del sistema
+    azure.vm_size = 'Basic_A0' #Tamaño (recursos) de la MV
+    azure.location = 'westeurope'
+    azure.vm_name = 'MVbaresytapas'
+    azure.tcp_endpoints = '80:80'
+    azure.vm_password = 'pass'
+
+    azure.tenant_id = ENV['AZURE_TENANT_ID']
+    azure.client_id = ENV['AZURE_CLIENT_ID']
+    azure.client_secret = ENV['AZURE_CLIENT_SECRET']
+    azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+  end
+
+  #Provisionamiento
+  config.vm.provision "ansible" do |ansible|
+        ansible.sudo = true
+        ansible.playbook = "configuracion.yml"
+        ansible.verbose = "-vvvv"
+        ansible.host_key_checking = false
+  end
+
+end
+```
+Este fichero define la creación de la máquina virtual y todos los parámetros que la conforman como por ejemplo:
+* IaaS
+* Caja base (la cual está vacía y completamos posteriormente)
+* Método de autentificación por SSH
+* Imagen base del distema (en este caso: Ubuntu server 16.04)
+* Tamaño de la máquina virtual (y por ende, cantidad de recursos disponibles)
+* Localización de la máquina
+* Credenciales de Azure (para más información sobre su obtención y definición, consultar la [documentación de este proyecto](enlacealadocu))
+* Y por último el método de provisionamiento, que en este caso se hace con Ansible, como se muestra en el siguiente apartado.
+
+**Nota**: Por el reciente cambio de APIs es posible que el puerto HTTP no quede correctamente abierto, si esto ocurre puede consultar la solución en la [documentación]()
